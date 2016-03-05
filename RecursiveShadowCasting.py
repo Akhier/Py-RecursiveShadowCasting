@@ -72,8 +72,7 @@ class Fov_RSC:
         elif octant == 3:
             x = self.sourcex + depth
             y = self.sourcey - int(startslope * depth)
-            if self._check_bounds(x, y, self.sourcex,
-                                  self.sourcey) <= endslope:
+            if self._check_bounds(x, y) <= endslope:
                 while self._get_inv_slope(x, y, self.sourcex,
                                           self.sourcey) <= endslope:
                     if self._is_visible(x, y):
@@ -217,10 +216,10 @@ class Fov_RSC:
         else:
             return True
 
-    def _get_slope(x1, y1, x2, y2):
+    def _get_slope(self, x1, y1, x2, y2):
         return float(x1 - x2) / float(y1 - y2)
 
-    def _get_inv_slope(x1, y1, x2, y2):
+    def _get_inv_slope(self, x1, y1, x2, y2):
         return float(y1 - y2) / float(x1 - x2)
 
     def _is_visible(self, x, y):
@@ -231,7 +230,7 @@ class Fov_RSC:
             return False
 
     def _test_tile(self, x, y, state):
-        if not self._is_visible(self.sourcex, self.sourcey, x, y):
+        if not self._is_visible(x, y):
             return False
         else:
             return self.seethrough[x][y] == state
