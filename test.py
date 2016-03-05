@@ -1,19 +1,18 @@
 from RecursiveShadowCasting import Fov_RSC
 
-
-fov = Fov_RSC(9, 9)
-testmap = [[True for y in range(9)] for x in range(9)]
-for y in range(9):
-    for x in range(9):
-        if x == 0 or y == 0 or x == 8 or y == 8:
+width = 9
+height = 9
+fov = Fov_RSC(width, height)
+testmap = [[True for y in range(height)] for x in range(width)]
+for y in range(height):
+    for x in range(width):
+        if x == 0 or y == 0 or x == width - 1 or y == height - 1:
             testmap[x][y] = False
 result = fov.Calculate_Sight(testmap, 4, 4, 4)
 s = ''
-for y in range(9):
-    for x in range(9):
+for y in range(height):
+    for x in range(width):
         if result[x][y]:
-            if x == 2 and y == 8:
-                print(testmap[x][y])
             if testmap[x][y]:
                 s += '.'
             else:
