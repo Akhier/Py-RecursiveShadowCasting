@@ -157,7 +157,7 @@ class Fov_RSC:
                 x -= 1
         elif octant == 7:
             x = self.sourcex - depth
-            y = self.sourcey + int(startslope, depth)
+            y = self.sourcey + int(startslope * depth)
             if self._check_bounds(x, y):
                 while self._get_inv_slope(x, y, self.sourcex,
                                           self.sourcey) <= endslope:
