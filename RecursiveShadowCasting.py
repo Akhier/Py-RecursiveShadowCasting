@@ -27,7 +27,7 @@ class Fov_RSC:
     def _scan(self, depth, octant, startslope, endslope):
         x = 0
         y = 0
-        if octant == 1:
+        if octant == 1:   # NW
             x = self.sourcex - int(startslope * depth)
             y = self.sourcey - depth
             if self._check_bounds(x, y):
@@ -48,7 +48,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     x += 1
                 x -= 1
-        elif octant == 2:
+        elif octant == 2:   # NE
             x = self.sourcex + int(startslope * depth)
             y = self.sourcey - depth
             if self._check_bounds(x, y):
@@ -69,7 +69,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     x -= 1
                 x += 1
-        elif octant == 3:
+        elif octant == 3:   # EN
             x = self.sourcex + depth
             y = self.sourcey - int(startslope * depth)
             if self._check_bounds(x, y):
@@ -91,7 +91,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     y += 1
                 y -= 1
-        elif octant == 4:
+        elif octant == 4:   # ES
             x = self.sourcex + depth
             y = self.sourcey + int(startslope * depth)
             if self._check_bounds(x, y):
@@ -113,7 +113,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     y -= 1
                 y += 1
-        elif octant == 5:
+        elif octant == 5:   # SE
             x = self.sourcex + int(startslope * depth)
             y = self.sourcey + depth
             if self._check_bounds(x, y):
@@ -134,7 +134,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     x -= 1
                 x += 1
-        elif octant == 6:
+        elif octant == 6:   # SW
             x = self.sourcex - int(startslope * depth)
             y = self.sourcey + depth
             if self._check_bounds(x, y):
@@ -155,7 +155,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     x += 1
                 x -= 1
-        elif octant == 7:
+        elif octant == 7:   # WS
             x = self.sourcex - depth
             y = self.sourcey + int(startslope * depth)
             if self._check_bounds(x, y):
@@ -177,7 +177,7 @@ class Fov_RSC:
                         self.visiblemap[x][y] = True
                     y -= 1
                 y += 1
-        elif octant == 8:
+        elif octant == 8:   # WN
             x = self.sourcex - depth
             y = self.sourcey - int(startslope * depth)
             if self._check_bounds(x, y):
