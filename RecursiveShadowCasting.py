@@ -7,13 +7,18 @@ class Fov_RSC:
         self.width = mapwidth
         self.height = mapheight
         self.visiblemap = []
+        # This will be a 2d bool array
+        #    of if a tile is visible
         self.seethrough = []
+        # This should be a 2d bool array
+        #    of if a tile is seethrough
+        #    with true meaning you can
+        #    see through the tile
         self.sourcex = 0
         self.sourcey = 0
         self.range = 0
 
-    def Calculate_Sight(self, seethrough,
-                        sourcex, sourcey, sightrange):
+    def Calculate_Sight(self, seethrough, sourcex, sourcey, sightrange):
         self.sourcex = sourcex
         self.sourcey = sourcey
         self.range = sightrange
