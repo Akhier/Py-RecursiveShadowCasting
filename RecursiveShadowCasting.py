@@ -105,7 +105,7 @@ class Fov_RSC:
                                                                  self.sourcex,
                                                                  self.sourcey)
                         else:
-                            if self._test_tile(x, y + 1, True, depth):
+                            if self._test_tile(x, y + 1, True):
                                 self._scan(depth + 1, octant, startslope,
                                            self._get_inv_slope(x - .5, y + .5,
                                                                self.sourcex,
