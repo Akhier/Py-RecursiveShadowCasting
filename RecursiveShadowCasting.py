@@ -20,6 +20,7 @@ class Fov_RSC:
         self.seethrough = seethrough
         self.visiblemap = [[False for y in range(self.height)]
                            for x in range(self.width)]
+        self.visiblemap[sourcex][sourcey] = True
         for octant in range(1, 9):
             self._scan(1, octant, 1.0, 0.0)
         return self.visiblemap
